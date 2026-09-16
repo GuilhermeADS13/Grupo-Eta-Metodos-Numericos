@@ -22,7 +22,18 @@ kmax = 50
 #implementa a bisseção aqui 
 
 
-#Implementa o new raphson aqui
+#Implementa o newton- raphson aqui
+E = 10
+R = 2
+
+i = 1 
+
+for n in range(6):
+    f = E - Ri - i**3
+    f_linha = -R - 3*i**2
+
+    i = i - f/f_linha #formula newton-raphson
+    print("iteracao" , n ,"i =" , i)
 
 
 #Implementa o ponto fixo aqui
