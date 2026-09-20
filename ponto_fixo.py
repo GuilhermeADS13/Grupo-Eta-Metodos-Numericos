@@ -1,3 +1,5 @@
+import math
+
 def ponto_fixo(phi, f, x0, eps1, eps2, kmax):
     i = x0
     if abs(f(i)) < eps1:
