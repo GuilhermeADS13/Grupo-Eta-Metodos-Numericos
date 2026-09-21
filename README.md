@@ -61,7 +61,7 @@ Para resolver a equação $f(i) = 0$, foram implementados em Python os seguintes
 1. **Método da Bisseção**
 2. **Método do Ponto-Fixo**
 3. **Método de Newton-Raphson**
-4. **Método das Secantes**
+
 
 ---
 
