@@ -1,7 +1,5 @@
 from problema import f, f_linha, phi, eps1, eps2, kmax
-from bissecao import bissecao
-from newton_raphson import newton_raphson
-from  ponto_fixo import ponto_fixo
+from metodos_numericos import bissecao, newton_raphson, ponto_fixo
 
 print("Método da Bisseção:")
 raiz, iteracoes = bissecao(f, 1, 2, eps1, eps2, kmax)

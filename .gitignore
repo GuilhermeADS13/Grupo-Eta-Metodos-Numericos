@@ -1,3 +1,13 @@
+### Python ###
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+.venv/
+venv/
+
 ### AL ###
 #Template for AL projects for Dynamics 365 Business Central
 #launch.json folder
