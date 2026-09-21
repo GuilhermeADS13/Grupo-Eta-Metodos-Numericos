@@ -59,7 +59,7 @@ O objetivo numérico é determinar o valor aproximado da corrente $i$ (em Ampèr
 Para resolver a equação $f(i) = 0$, foram implementados em Python os seguintes métodos:
 
 1. **Método da Bisseção**
-2. **Método da Falsa Posição**
+2. **Método do Ponto-Fixo**
 3. **Método de Newton-Raphson**
 4. **Método das Secantes**
 
