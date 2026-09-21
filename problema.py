@@ -13,6 +13,11 @@ def f_linha(i):
     return -2 - 3 * (i ** 2)
 
 
+
+def phi(i): 
+    return (10 - 2 * i) ** (1/3)
+
+
 eps1 = 1e-4
 eps2 = 1e-4
 kmax = 50
