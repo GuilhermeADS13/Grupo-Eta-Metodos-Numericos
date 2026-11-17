@@ -174,3 +174,9 @@ from metodos_numericos import bissecao
 f = lambda x: x**2 - 2
 raiz, iteracoes = bissecao(f, 1, 2, 1e-4, 1e-4, 50)
 ```
+
+## Projeto 2GQ — Energia consumida em 24 horas
+
+A energia é a integral da potência em relação ao tempo. Como as medições são discretas, a regra dos trapézios aproxima a potência por uma reta entre horários consecutivos. Somar as potências dá um valor em kW. Multiplicar a potência média de cada intervalo pela duração em horas dá a energia em kWh. A aproximação linear pode deixar escapar variações entre as medições.
+
+`calcular_energias` recebe um iterável com pelo menos dois pares `(hora, potencia_kw)`. Os valores devem ser números reais finitos e os horários devem ser estritamente crescentes. Entradas inválidas geram `ValueError`. A função retorna `(energias_por_intervalo, energia_total)` em kWh, sem arredondamento intermediário.

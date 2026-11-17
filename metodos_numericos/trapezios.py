@@ -1,23 +1,8 @@
-"""Integração numérica pela regra dos trapézios."""
-
 from math import isfinite
 from numbers import Real
 
 
 def calcular_energias(medicoes):
-    """Retorna (energias_por_intervalo, energia_total), ambos em kWh.
-
-    Recebe um iterável de pares (hora, potencia_kw), com pelo menos duas
-    medições. Os valores devem ser números reais finitos e os horários devem
-    ser estritamente crescentes. Entradas inválidas geram ValueError.
-
-    Energia é a integral da potência em relação ao tempo. Para medições
-    discretas, a regra dos trapézios aproxima essa integral assumindo que a
-    potência varia linearmente entre medições consecutivas. Variações dentro
-    de um intervalo podem escapar a essa aproximação. Somar as potências
-    ainda dá um valor em kW. Multiplicar a potência média pela duração em
-    horas dá a energia em kWh.
-    """
     energias = []
     hora_anterior = None
     potencia_anterior = None
