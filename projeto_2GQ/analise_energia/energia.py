@@ -1,1 +1,1 @@
-from metodos_numericos.trapezios import calcular_energias
+from .trapezios import calcular_energias

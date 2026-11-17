@@ -19,4 +19,4 @@ dependencies = []
 Repository = "https://github.com/GuilhermeADS13/Grupo-Eta-Metodos-Numericos"
 
 [tool.setuptools]
-packages = ["metodos_numericos"]
+packages = ["metodos_numericos", "projeto_2GQ.analise_energia"]
