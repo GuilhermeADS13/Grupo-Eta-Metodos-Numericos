@@ -104,7 +104,7 @@ metodos_numericos/        pacote com os métodos (genéricos, instalável via pi
     newton_raphson.py
     ponto_fixo.py
 problema.py               definição do circuito: f, f', phi e os parâmetros
-metodos_numericos/analise.ipynb  notebook que importa o pacote e resolve o problema
+analise.ipynb             notebook que importa o pacote e resolve o problema
 main.py                   script equivalente, para rodar pelo terminal
 pyproject.toml            configuração do pacote
 ```
@@ -146,7 +146,7 @@ pip install jupyter
 ### Pelo notebook (recomendado)
 
 ```bash
-jupyter notebook metodos_numericos/analise.ipynb
+jupyter notebook analise.ipynb
 ```
 
 O notebook importa as funções do pacote, aplica os três métodos ao problema e mostra os resultados. Execute a partir da raiz do repositório, porque ele importa o `problema.py`.
