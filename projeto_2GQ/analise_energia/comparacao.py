@@ -10,12 +10,10 @@ def comparar_periodos(energia):
 
     e2 = 0
 
-    for i in range(0, 12):
+    for i in range(6, 12):
         e2 = e2 + energia[i]
 
-    e3 = 0
-
-    if e2 > e3:
+    if e1 > e2:
         maior = "primeiras 12h"
 
     else:
@@ -24,4 +22,3 @@ def comparar_periodos(energia):
     dif_real = (e2 - e1) / e1 * 100
 
     return e1, e2, maior, dif_real
-
