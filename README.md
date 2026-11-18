@@ -14,6 +14,7 @@
 - [Estrutura do Repositório](#estrutura-do-repositório)
 - [Instalação](#instalação)
 - [Como Executar](#como-executar)
+- [Projeto 2GQ: Consumo de Energia de um Data Center](#projeto-2gq-consumo-de-energia-de-um-data-center)
 
 ---
 
@@ -103,7 +104,7 @@ metodos_numericos/        pacote com os métodos (genéricos, instalável via pi
     newton_raphson.py
     ponto_fixo.py
 problema.py               definição do circuito: f, f', phi e os parâmetros
-analise.ipynb             notebook que importa o pacote e resolve o problema
+metodos_numericos/analise.ipynb  notebook que importa o pacote e resolve o problema
 main.py                   script equivalente, para rodar pelo terminal
 pyproject.toml            configuração do pacote
 ```
@@ -145,7 +146,7 @@ pip install jupyter
 ### Pelo notebook (recomendado)
 
 ```bash
-jupyter notebook analise.ipynb
+jupyter notebook metodos_numericos/analise.ipynb
 ```
 
 O notebook importa as funções do pacote, aplica os três métodos ao problema e mostra os resultados. Execute a partir da raiz do repositório, porque ele importa o `problema.py`.
@@ -173,4 +174,41 @@ from metodos_numericos import bissecao
 
 f = lambda x: x**2 - 2
 raiz, iteracoes = bissecao(f, 1, 2, 1e-4, 1e-4, 50)
+```
+
+---
+
+## Projeto 2GQ: Consumo de Energia de um Data Center
+
+O código do 2º GQ fica em `projeto_2GQ/` e é instalado junto com o mesmo pacote.
+
+```text
+projeto_2GQ/
+    analise_energia.ipynb     notebook que importa o pacote e resolve os itens
+    analise_energia/          funções de cada etapa (leitura, trapézios, custo, comparação, economia)
+        main.py               programa principal, para rodar pelo terminal
+```
+
+### Instalação
+
+Na raiz do repositório:
+
+```bash
+pip install .
+```
+
+Rode o comando de novo sempre que puxar alterações do repositório (`git pull`). A instalação copia o código, então uma versão antiga instalada não enxerga o `projeto_2GQ` e o notebook dá `ModuleNotFoundError`.
+
+### Como executar
+
+Pelo notebook:
+
+```bash
+jupyter notebook projeto_2GQ/analise_energia.ipynb
+```
+
+Pelo terminal, a partir da raiz do repositório:
+
+```bash
+python -m projeto_2GQ.analise_energia.main
 ```
