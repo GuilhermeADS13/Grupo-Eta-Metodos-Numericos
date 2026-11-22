@@ -5,16 +5,63 @@
 from projeto_2GQ.analise_energia.leitura import horas, potencias, tarifas
 from projeto_2GQ.analise_energia.trapezios import calcular_energias
 from projeto_2GQ.analise_energia.custo import calcular_custos
+from projeto_2GQ.analise_energia.comparacao import comparar_periodos
 
-medicoes = list(zip(horas, potencias))
-energias, energia_total = calcular_energias(medicoes)
 
-# Item (b) - custo da energia consumida
-custos, custo_total = calcular_custos(energias, tarifas)
+def nome_intervalo(i):
+    return f"{horas[i]:02d}-{horas[i + 1]:02d}h"
 
-print("Item (b) - Custo da energia por intervalo")
-print("Intervalo | Energia (kWh) | Tarifa (R$/kWh) | Custo (R$)")
-for i in range(len(custos)):
-    print(f"{horas[i]:02d}-{horas[i + 1]:02d}h    | {energias[i]:13.2f} | {tarifas[i]:15.2f} | {custos[i]:10.2f}")
-print(f"Custo total: R$ {custo_total:.2f}")
 
+def linha():
+    print("-" * 62)
+
+
+def mostrar_item_a(energias, energia_total):
+    print("Item (a) - Energia total consumida em 24 h (regra dos trapézios)")
+    linha()
+    print("Intervalo | P inicial (kW) | P final (kW) | Energia (kWh)")
+    for i in range(len(energias)):
+        print(f"{nome_intervalo(i)}    | {potencias[i]:14.2f} | {potencias[i + 1]:12.2f} | {energias[i]:13.2f}")
+    print(f"Energia total: {energia_total:.2f} kWh")
+    print()
+
+
+def mostrar_item_b(energias, custos, custo_total):
+    print("Item (b) - Custo da energia consumida")
+    linha()
+    print("Intervalo | Energia (kWh) | Tarifa (R$/kWh) | Custo (R$)")
+    for i in range(len(custos)):
+        print(f"{nome_intervalo(i)}    | {energias[i]:13.2f} | {tarifas[i]:15.2f} | {custos[i]:10.2f}")
+    print(f"Custo total: R$ {custo_total:.2f}")
+    print()
+
+
+def mostrar_item_c(energias):
+    e1, e2, maior, dif_real = comparar_periodos(energias)
+
+    print("Item (c) - Primeiras 12 h x últimas 12 h")
+    linha()
+    print(f"Primeiras 12 h (00-12h): {e1:.2f} kWh")
+    print(f"Últimas 12 h (12-24h):   {e2:.2f} kWh")
+    print(f"Período com maior consumo: {maior}")
+    print(f"Diferença relativa (referência: primeiras 12 h): {dif_real:.2f}%")
+    print()
+
+
+def main():
+    print("Análise do Consumo de Energia de um Data Center - Grupo Eta")
+    print("=" * 62)
+    print()
+
+    medicoes = list(zip(horas, potencias))
+    energias, energia_total = calcular_energias(medicoes)
+
+    custos, custo_total = calcular_custos(energias, tarifas)
+
+    mostrar_item_a(energias, energia_total)
+    mostrar_item_b(energias, custos, custo_total)
+    mostrar_item_c(energias)
+
+
+if __name__ == "__main__":
+    main()
