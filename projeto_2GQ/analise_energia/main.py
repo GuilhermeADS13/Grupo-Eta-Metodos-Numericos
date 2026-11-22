@@ -7,6 +7,11 @@ from projeto_2GQ.analise_energia.trapezios import calcular_energias
 from projeto_2GQ.analise_energia.custo import calcular_custos
 from projeto_2GQ.analise_energia.comparacao import comparar_periodos
 
+try:
+    from projeto_2GQ.analise_energia.economia import calcular_economias
+except ImportError:
+    calcular_economias = None
+
 
 def nome_intervalo(i):
     return f"{horas[i]:02d}-{horas[i + 1]:02d}h"
@@ -48,6 +53,27 @@ def mostrar_item_c(energias):
     print()
 
 
+def mostrar_item_d(energias):
+    print("Item (d) - Redução de 10% em um intervalo de 2 h")
+    linha()
+
+    if calcular_economias is None:
+        print("Pendente: a função calcular_economias ainda não está em economia.py.")
+        print()
+        return
+
+    economias, indice_maior, economia_mensal = calcular_economias(energias, tarifas)
+
+    print("Intervalo | Energia (kWh) | Tarifa (R$/kWh) | Economia/dia (R$)")
+    for i in range(len(economias)):
+        marca = "  <- maior" if i == indice_maior else ""
+        print(f"{nome_intervalo(i)}    | {energias[i]:13.2f} | {tarifas[i]:15.2f} | {economias[i]:17.2f}{marca}")
+    print(f"Intervalo com maior economia: {nome_intervalo(indice_maior)}")
+    print(f"Economia diária: R$ {economias[indice_maior]:.2f}")
+    print(f"Economia em 30 dias: R$ {economia_mensal:.2f}")
+    print()
+
+
 def main():
     print("Análise do Consumo de Energia de um Data Center - Grupo Eta")
     print("=" * 62)
@@ -61,6 +87,7 @@ def main():
     mostrar_item_a(energias, energia_total)
     mostrar_item_b(energias, custos, custo_total)
     mostrar_item_c(energias)
+    mostrar_item_d(energias)
 
 
 if __name__ == "__main__":
