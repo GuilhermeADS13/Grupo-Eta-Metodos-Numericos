@@ -180,13 +180,27 @@ raiz, iteracoes = bissecao(f, 1, 2, 1e-4, 1e-4, 50)
 
 ## Projeto 2GQ: Consumo de Energia de um Data Center
 
-O código do 2º GQ fica em `projeto_2GQ/` e é instalado junto com o mesmo pacote.
+### O problema (Problema 4)
+
+A potência elétrica de um data center foi medida a cada 2 horas ao longo de 24 horas (13 medições, de 0 h a 24 h). A energia é cobrada por faixa de horário, com uma tarifa diferente para cada um dos 12 intervalos de 2 horas. O projeto calcula:
+
+- **(a)** a energia total consumida no dia, pela regra dos trapézios;
+- **(b)** o custo total, intervalo a intervalo, com a tarifa de cada faixa;
+- **(c)** o consumo das primeiras 12 h e das últimas 12 h e a diferença relativa entre eles;
+- **(d)** em qual intervalo uma redução de 10% no consumo gera a maior economia, e quanto isso economiza em 30 dias.
+
+### Estrutura
 
 ```text
 projeto_2GQ/
     analise_energia.ipynb     notebook que importa o pacote e resolve os itens
-    analise_energia/          funções de cada etapa (leitura, trapézios, custo, comparação, economia)
-        main.py               programa principal, para rodar pelo terminal
+    analise_energia/          pacote com as funções de cada etapa
+        leitura.py            dados de potência e tarifas (Breno)
+        trapezios.py          item (a), energia por intervalo pela regra dos trapézios (Mirna)
+        custo.py              item (b), custo por intervalo e total (Guilherme)
+        comparacao.py         item (c), primeiras 12 h x últimas 12 h (Jeanne)
+        economia.py           item (d), redução de 10% em um intervalo (Allan)
+        main.py               programa principal, roda todos os itens pelo terminal (Manuela)
 ```
 
 ### Instalação
@@ -212,3 +226,12 @@ Pelo terminal, a partir da raiz do repositório:
 ```bash
 python -m projeto_2GQ.analise_energia.main
 ```
+
+### Resultados
+
+| Item | Resultado |
+|---|---|
+| (a) Energia total | 3 504,54 kWh |
+| (b) Custo total | R$ 2 872,14 |
+| (c) Últimas 12 h × primeiras 12 h | 1 856,05 kWh × 1 648,49 kWh (+12,59%) |
+| (d) Melhor intervalo para reduzir 10% | 16–18 h: R$ 39,56/dia, R$ 1 186,67 em 30 dias |
