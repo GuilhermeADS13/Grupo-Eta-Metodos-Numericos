@@ -8,7 +8,7 @@ from projeto_2GQ.analise_energia.custo import calcular_custos
 from projeto_2GQ.analise_energia.comparacao import comparar_periodos
 
 try:
-    from projeto_2GQ.analise_energia.economia import calcular_economias
+    from projeto_2GQ.analise_energia.economia import calcular_economias, melhor_intervalo
 except ImportError:
     calcular_economias = None
 
@@ -62,7 +62,8 @@ def mostrar_item_d(energias):
         print()
         return
 
-    economias, indice_maior, economia_mensal = calcular_economias(energias, tarifas)
+    economias = calcular_economias(energias, tarifas)
+    indice_maior, _, economia_mensal = melhor_intervalo(economias)
 
     print("Intervalo | Energia (kWh) | Tarifa (R$/kWh) | Economia/dia (R$)")
     for i in range(len(economias)):
