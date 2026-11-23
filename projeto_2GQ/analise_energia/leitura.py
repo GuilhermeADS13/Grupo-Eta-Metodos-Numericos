@@ -1,6 +1,8 @@
 ## Parte do Breno: leitura dos dados.
-# Lê os arquivos consumo.csv e tarifas.csv e entrega os dados prontos
-# para as outras etapas (horas, potências e faixas de tarifa).
+# Guarda os dados do problema (potência medida a cada 2 h e tarifa de cada
+# intervalo), digitados a partir de consumo.csv e tarifas.csv do enunciado,
+# e entrega os dados prontos para as outras etapas (horas, potências e
+# faixas de tarifa).
 
 horas = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
 
