@@ -1,12 +1,16 @@
 ## Parte do Breno: leitura dos dados.
 # Guarda os dados do problema (potência medida a cada 2 h e tarifa de cada
-# intervalo), digitados a partir de consumo.csv e tarifas.csv do enunciado,
+# intervalo), lidos de consumo.csv e tarifas.csv do enunciado,
 # e entrega os dados prontos para as outras etapas (horas, potências e
 # faixas de tarifa).
 
+import os
+
+pasta = os.path.dirname(os.path.abspath(__file__))
+
 horas = []
 potencias = []
-f = open("consumo.csv")
+f = open(os.path.join(pasta, "consumo.csv"))
 f.readline()  
 for linha in f:
     hora, potencia = linha.strip().split(",")
@@ -15,7 +19,7 @@ for linha in f:
 f.close()
 
 tarifas = []
-f = open("tarifas.csv")
+f = open(os.path.join(pasta, "tarifas.csv"))
 f.readline()  
 for linha in f:
     inicio, fim, tarifa = linha.strip().split(",")

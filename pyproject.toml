@@ -20,3 +20,6 @@ Repository = "https://github.com/GuilhermeADS13/Grupo-Eta-Metodos-Numericos"
 
 [tool.setuptools]
 packages = ["projeto_2GQ.analise_energia"]
+
+[tool.setuptools.package-data]
+"projeto_2GQ.analise_energia" = ["*.csv"]
