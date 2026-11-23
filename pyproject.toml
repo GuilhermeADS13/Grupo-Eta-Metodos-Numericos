@@ -5,18 +5,18 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "metodos-numericos-eta"
 version = "1.0.0"
-description = "Metodos numericos para determinacao de raizes de equacoes nao-lineares - Grupo Eta"
+description = "Metodos numericos para analise do consumo de energia de um data center - Grupo Eta"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
 authors = [
     { name = "Grupo Eta" },
 ]
-keywords = ["metodos numericos", "raizes", "bissecao", "newton-raphson", "ponto fixo"]
+keywords = ["metodos numericos", "integracao numerica", "regra dos trapezios", "energia"]
 dependencies = []
 
 [project.urls]
 Repository = "https://github.com/GuilhermeADS13/Grupo-Eta-Metodos-Numericos"
 
 [tool.setuptools]
-packages = ["metodos_numericos", "projeto_2GQ.analise_energia"]
+packages = ["projeto_2GQ.analise_energia"]
