@@ -4,13 +4,23 @@
 # e entrega os dados prontos para as outras etapas (horas, potências e
 # faixas de tarifa).
 
-horas = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+horas = []
+potencias = []
+f = open("consumo.csv")
+f.readline()  
+for linha in f:
+    hora, potencia = linha.strip().split(",")
+    horas.append(int(hora))
+    potencias.append(float(potencia))
+f.close()
 
-potencias = [122.12, 120.11, 125.23, 134.21, 138.54, 155.46,
-             179.27, 183.07, 171.07, 158.56, 137.63, 126.26, 123.6]
-
-tarifas = [0.65, 0.65, 0.65, 0.75, 0.75, 0.75,
-           0.75, 0.85, 1.2, 1.2, 0.85, 0.65]
+tarifas = []
+f = open("tarifas.csv")
+f.readline()  
+for linha in f:
+    inicio, fim, tarifa = linha.strip().split(",")
+    tarifas.append(float(tarifa))
+f.close()
 
 
 
